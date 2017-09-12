@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)http://www.jq22.com/demo/MinimalForm/ -->
+<html lang="en" class=" js csstransitions"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>Minimal Form Interface</title>
+
+		<meta name="description" content="Minimal Form Interface: Simplistic, single input view form">
+
+		<meta name="keywords" content="form, minimal, interface, single input, big form, responsive form, transition">
+
+		<meta name="author" content="Codrops">
+
+		<link rel="shortcut icon" href="http://www.jq22.com/demo/favicon.ico">
+
+		<link rel="stylesheet" type="text/css" href="css/normalize.css">
+
+		<link rel="stylesheet" type="text/css" href="css/demo.css">
+
+		<link rel="stylesheet" type="text/css" href="css/component.css">
+
+		<script src="js/modernizr.custom.js"></script>
+
+	</head>
+
+	<body>
+
+		<div class="container">
+
+			<!-- Top Navigation -->
+
+			<header class="codrops-header">
+
+			  <h1>请输入你的聊天信息 <span>必须输入否则不可聊天</span></h1>
+
+			</header>
+
+			<section>
+
+				<form id="theForm" class="simform" autocomplete="off">
+
+					<div class="simform-inner">
+
+						<ol class="questions">
+
+							<li class="current">
+
+								<span><label for="q1">你想叫做什么名字呢?</label></span>
+
+								<input id="q1" name="q1" type="text" required>
+
+							</li>
+
+							<li>
+
+								<span><label for="q2">你的头像地址?</label></span>
+
+								<input id="q2" name="q2" type="text" required>
+
+							</li>
+
+						</ol><!-- /questions -->
+
+						<button class="submit" type="submit">Send answers</button>
+
+						<div class="controls">
+
+							<button class="next show"></button>
+
+							<div class="progress"></div>
+
+							<span class="number">
+
+								<span class="number-current">1</span>
+
+								<span class="number-total">2</span>
+
+							</span>
+
+							<span class="error-message"></span>
+
+						</div><!-- / controls -->
+
+					</div><!-- /simform-inner -->
+
+					<span class="final-message"></span>
+
+				</form><!-- /simform -->
+
+			</section>
+
+
+
+		</div><!-- /container -->
+
+		<script src="js/classie.js"></script>
+
+		<script src="js/stepsForm.js"></script>
+
+		<script>
+
+			var theForm = document.getElementById( 'theForm' );
+
+
+
+			new stepsForm( theForm, {
+
+				onSubmit : function( form ) {
+
+					// hide form
+
+					classie.addClass( theForm.querySelector( '.simform-inner' ), 'hide' );
+
+
+
+					/*
+
+					form.submit()
+
+					or
+
+					AJAX request (maybe show loading indicator while we don't have an answer..)
+
+					*/
+
+
+
+					// let's just simulate something...
+
+					var messageEl = theForm.querySelector( '.final-message' );
+
+					messageEl.innerHTML = '感谢提交 马上跳转';
+
+					classie.addClass( messageEl, 'show' );
+
+
+          var name = window.location = "chat.html?username="+document.getElementById('q1').value+"&headstrs="+document.getElementById('q2').value;
+
+           setTimeout(name, 1000);
+				}
+
+			} );
+
+		</script>
+
+
+
+
+
+</body></html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+      <script src = "https://cdn.wilddog.com/sdk/js/2.5.8/wilddog-sync.js"></script>
+      <script type="text/javascript">
+      var config = {
+	      syncURL: "https://spider.wilddogio.com/" //输入节点 URL
+	    };
+
+      wilddog.initializeApp(config);
+      var ref = wilddog.sync().ref();
+
+
+            var qqMesRef = ref.child("qqmessage");
+
+qqMesRef.remove();
+
+      </script>
+  </head>
+  <body>
+
+  </body>
+</html>
