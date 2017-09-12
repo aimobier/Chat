@@ -1,155 +1,153 @@
 <!DOCTYPE html>
 <!-- saved from url=(0037)http://www.jq22.com/demo/MinimalForm/ -->
-<html lang="en" class=" js csstransitions"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="en" class=" js csstransitions">
 
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>信息提交 | 头像地址为在线图片地址</title>
 
-		<title>Minimal Form Interface</title>
+  <link rel="stylesheet" type="text/css" href="css/normalize.css">
 
-		<meta name="description" content="Minimal Form Interface: Simplistic, single input view form">
+  <link rel="stylesheet" type="text/css" href="css/demo.css">
 
-		<meta name="keywords" content="form, minimal, interface, single input, big form, responsive form, transition">
+  <link rel="stylesheet" type="text/css" href="css/component.css">
 
-		<meta name="author" content="Codrops">
+  <script src="js/modernizr.custom.js"></script>
 
-		<link rel="shortcut icon" href="http://www.jq22.com/demo/favicon.ico">
+</head>
 
-		<link rel="stylesheet" type="text/css" href="css/normalize.css">
+<body>
 
-		<link rel="stylesheet" type="text/css" href="css/demo.css">
+  <div class="container">
 
-		<link rel="stylesheet" type="text/css" href="css/component.css">
+    <!-- Top Navigation -->
 
-		<script src="js/modernizr.custom.js"></script>
+    <header class="codrops-header">
 
-	</head>
+      <h1>请输入你的聊天信息 <span>必须输入否则不可聊天</span></h1>
 
-	<body>
+    </header>
 
-		<div class="container">
+    <section>
 
-			<!-- Top Navigation -->
+      <form id="theForm" class="simform" autocomplete="off">
 
-			<header class="codrops-header">
+        <div class="simform-inner">
 
-			  <h1>请输入你的聊天信息 <span>必须输入否则不可聊天</span></h1>
+          <ol class="questions">
 
-			</header>
+            <li class="current">
 
-			<section>
+              <span><label for="q1">你想叫做什么名字呢?</label></span>
 
-				<form id="theForm" class="simform" autocomplete="off">
+              <input id="q1" name="q1" type="text" required>
 
-					<div class="simform-inner">
+            </li>
 
-						<ol class="questions">
+            <li>
 
-							<li class="current">
+              <span><label for="q2">你的头像地址?</label></span>
 
-								<span><label for="q1">你想叫做什么名字呢?</label></span>
+              <input id="q2" name="q2" type="text" required>
 
-								<input id="q1" name="q1" type="text" required>
+            </li>
 
-							</li>
+          </ol>
+          <!-- /questions -->
 
-							<li>
+          <button class="submit" type="submit">Send answers</button>
 
-								<span><label for="q2">你的头像地址?</label></span>
+          <div class="controls">
 
-								<input id="q2" name="q2" type="text" required>
+            <button class="next show"></button>
 
-							</li>
+            <div class="progress"></div>
 
-						</ol><!-- /questions -->
-
-						<button class="submit" type="submit">Send answers</button>
-
-						<div class="controls">
-
-							<button class="next show"></button>
-
-							<div class="progress"></div>
-
-							<span class="number">
+            <span class="number">
 
 								<span class="number-current">1</span>
 
-								<span class="number-total">2</span>
+            <span class="number-total">2</span>
 
-							</span>
+            </span>
 
-							<span class="error-message"></span>
+            <span class="error-message"></span>
 
-						</div><!-- / controls -->
+          </div>
+          <!-- / controls -->
 
-					</div><!-- /simform-inner -->
+        </div>
+        <!-- /simform-inner -->
 
-					<span class="final-message"></span>
+        <span class="final-message"></span>
 
-				</form><!-- /simform -->
+      </form>
+      <!-- /simform -->
 
-			</section>
-
-
-
-		</div><!-- /container -->
-
-		<script src="js/classie.js"></script>
-
-		<script src="js/stepsForm.js"></script>
-
-		<script>
-
-			var theForm = document.getElementById( 'theForm' );
+    </section>
 
 
 
-			new stepsForm( theForm, {
+  </div>
+  <!-- /container -->
 
-				onSubmit : function( form ) {
+  <script src="js/classie.js"></script>
 
-					// hide form
+  <script src="js/stepsForm.js"></script>
 
-					classie.addClass( theForm.querySelector( '.simform-inner' ), 'hide' );
-
-
-
-					/*
-
-					form.submit()
-
-					or
-
-					AJAX request (maybe show loading indicator while we don't have an answer..)
-
-					*/
+  <script>
+    var theForm = document.getElementById('theForm');
 
 
 
-					// let's just simulate something...
+    new stepsForm(theForm, {
 
-					var messageEl = theForm.querySelector( '.final-message' );
+      onSubmit: function(form) {
 
-					messageEl.innerHTML = '感谢提交 马上跳转';
+        // hide form
 
-					classie.addClass( messageEl, 'show' );
-
-
-          var name = window.location = "chat.html?username="+document.getElementById('q1').value+"&headstrs="+document.getElementById('q2').value;
-
-           setTimeout(name, 1000);
-				}
-
-			} );
-
-		</script>
+        classie.addClass(theForm.querySelector('.simform-inner'), 'hide');
 
 
 
+        /*
+
+        form.submit()
+
+        or
+
+        AJAX request (maybe show loading indicator while we don't have an answer..)
+
+        */
 
 
-</body></html>
+
+        // let's just simulate something...
+
+        var messageEl = theForm.querySelector('.final-message');
+
+        messageEl.innerHTML = '感谢提交 马上跳转';
+
+        classie.addClass(messageEl, 'show');
+
+
+        var name = window.location = "chat.html?username=" + document.getElementById('q1').value + "&headstrs=" + document.getElementById('q2').value;
+
+        setTimeout(name, 1000);
+      }
+
+    });
+  </script>
+
+
+
+
+
+</body>
+
+</html>
